@@ -1,0 +1,144 @@
+    <html>
+
+    <head>
+        <script data-cfasync="false" type="text/javascript" src="https://tracker.gaconnector.com/gaconnector.js"></script>
+        <!--<script type="text/javascript">
+            gaconnector2.track("415c5deeb390c90603a9c574651e4abd");
+        </script>-->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19479126-3"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-19479126-3');
+            function getcId() {
+                var clientid = ga.getAll()[0].get('clientId');
+                console.log(clientid);
+                document.getElementById("GA_Client_ID").value = clientid;
+                document.getElementById("tracking_id").value = "UA-19479126-3";
+            }
+            setTimeout("getcId()", 2000);
+            
+            var gaconnectorFieldsMap = {
+                "lc_source": "Last_Click_Source",
+                "lc_medium": "Last_Click_Medium",
+                "browser": "Browser",
+                "fc_campaign": "First_Click_Campaign",
+                "fc_channel": "First_Click_Channel",
+                "fc_content": "First_Click_Content",
+                "fc_landing": "First_Click_Landing_Page",
+                "fc_medium": "First_Click_Medium",
+                "fc_referrer": "First_Click_Referrer",
+                "fc_source": "First_Click_Source",
+                "fc_term": "First_Click_Term",
+                "GA_Client_ID": "GA_Client_ID",
+                "ip_address": "IP_Address",
+                "lc_campaign": "Last_Click_Campaign",
+                "lc_channel": "Last_Click_Channel",
+                "lc_content": "Last_Click_Content",
+                "lc_landing": "Last_Click_Landing_Page",
+                "lc_referrer": "Last_Click_Referrer",
+                "lc_term": "Last_Click_Term",
+                "OS": "Operating_System",
+                "pages_visited_list": "Pages_Visited",
+                "time_passed": "Time_Spent_On_Website",
+                "time_zone": "Time_Zone"
+            };
+            function receiveGaconnectorData(event)
+            {
+                var gaFields = event.data;
+                if (typeof gaFields['lc_source'] !== 'undefined') {
+                    for (var gaconnectorName in gaconnectorFieldsMap) {
+                        var pardotName = gaconnectorFieldsMap[gaconnectorName];
+                        var input = document.querySelector("p." + pardotName + " input[type=hidden]");
+                        if (input !== null) {
+                            input.value = gaFields[gaconnectorName];
+                        }
+                    }
+                }
+            }
+            window.addEventListener("message", receiveGaconnectorData, false);
+
+            function setGaconnectorHiddenFields() {
+                var gaFields = gaconnector.getCookieValues();
+                setInterval(function(){
+                var pardotForm = document.querySelector("iframe.pardotform");
+                if (pardotForm !== null) {
+                    pardotForm.contentWindow.postMessage(gaFields, "*");
+                }
+            }, 1000);   
+            }
+
+            gaconnector.setCallback(setGaconnectorHiddenFields);
+        </script>
+    </head>
+
+    <body>
+        <!--  ----------------------------------------------------------------------  -->
+        <!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+        <!--  If necessary, please modify the charset parameter to specify the        -->
+        <!--  character set of your HTML page.                                        -->
+        <!--  ----------------------------------------------------------------------  -->
+
+        <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+        <!--  ----------------------------------------------------------------------  -->
+        <!--  NOTE: Please add the following <FORM> element to your page.             -->
+        <!--  ----------------------------------------------------------------------  -->
+
+        <form action="http://go.pardot.com/l/514851/2019-01-15/fkds1z" method="post">
+
+            <label for="first_name">First Name</label>
+            <input id="first_name" maxlength="40" name="first_name" size="20"
+                type="text" /><br>
+
+            <label for="last_name">Last Name</label>
+            <input id="last_name" maxlength="80" name="last_name" size="20"
+                type="text" /><br>
+
+            <label for="email">Email</label>
+            <input id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+            <label for="company">Company</label>
+            <input id="company" maxlength="40" name="company" size="20" type="text" /><br>
+
+            <label for="city">City</label>
+            <input id="city" maxlength="40" name="city" size="20" type="text" /><br>
+
+            <label for="state">State/Province</label>
+            <input id="state" maxlength="20" name="state" size="20" type="text" /><br>
+
+            <input type=hidden id="GA_Client_ID" name="GA_Client_ID"/><br>
+            <input type=hidden id="tracking_id" name="tracking_id"/><br>
+            <input type=hidden id="browser" name="browser"/><br>
+            <input type=hidden id="ip_address" name="ip_address"/><br>
+            <input type=hidden id="OS" name="OS"/><br>
+            <input type=hidden id="pages_visited_list" name="pages_visited_list"/><br>
+            <input type=hidden id="time_passed" name="time_passed"/><br>
+            <input type=hidden id="time_zone" name="time_zone"/><br>
+            
+            <input type=hidden id="fc_campaign" name="fc_campaign"/><br>
+            <input type=hidden id="fc_channel" name="fc_channel"/><br>
+            <input type=hidden id="fc_content" name="fc_content"/><br>
+            <input type=hidden id="fc_landing" name="fc_landing"/><br>
+            <input type=hidden id="fc_medium" name="fc_medium"/><br>
+            <input type=hidden id="fc_referrer" name="fc_referrer"/><br>
+            <input type=hidden id="fc_source" name="fc_source"/><br>
+            <input type=hidden id="fc_term" name="fc_term"/><br>
+
+
+            <input type=hidden id="lc_source" name="lc_source"/><br>
+            <input type=hidden id="lc_medium" name="lc_medium"/><br>
+            <input type=hidden id="lc_campaign" name="lc_campaign"/><br>
+            <input type=hidden id="lc_channel" name="lc_channel"/><br>
+            <input type=hidden id="lc_content" name="lc_content"/><br>
+            <input type=hidden id="lc_landing" name="lc_landing"/><br>
+            <input type=hidden id="lc_referrer" name="lc_referrer"/><br>
+            <input type=hidden id="lc_term" name="lc_term"/><br>
+
+            <input type="submit" name="submit">
+        </form>
+    </body>
+
+    </html>
