@@ -15,10 +15,10 @@
                     inputs.value = gaFields[fieldName];
                 } else {
                     for (var i = 0; i < inputs.length; i++) {
-                        if(input[i].name != 'email' && input[i].city != 'city') {
+                        if(inputs[i].name != 'email' && inputs[i].city != 'city') {
                             inputs[i].value = gaFields[fieldName];
                         }
-                        console.log(input[i].name);
+                        console.log(inputs[i].name);
                     }
                 }
             }
