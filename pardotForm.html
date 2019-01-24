@@ -44,9 +44,15 @@
             console.log(clientid);
             document.getElementById("GA_Client_ID").value = clientid;
             document.getElementById("tracking_id").value = "UA-19479126-3";
-            document.getElementById("utm_source").value = getParameterByName('utm_source');
-            document.getElementById("utm_campaign").value = getParameterByName('utm_campaign');
-            document.getElementById("utm_medium").value = getParameterByName('utm_medium');
+            var source = getParameterByName('utm_source');
+            var campaign = getParameterByName('utm_campaign');
+            var medium = getParameterByName('utm_medium');
+            console.log(source);
+            console.log(campaign);
+            console.log(medium);
+            document.getElementById("utm_source").value = source;
+            document.getElementById("utm_campaign").value = campaign;
+            document.getElementById("utm_medium").value = medium;
 
         }
         setTimeout("getcId()", 2000);
