@@ -2,29 +2,28 @@
 
     <head>
         <script data-cfasync="false" type="text/javascript" src="https://tracker.gaconnector.com/gaconnector.js"></script>
-    <script>
-    function setGaconnectorHiddenFields() {
-        var gaFields = gaconnector.getCookieValues();
-        for (var fieldName in gaFields) {
-            var selectors = 'form input[name="' + fieldName + '"], form input#' + fieldName + ', form input#field_' + fieldName + ', form input[name="' + fieldName.toLowerCase() + '"], form input#' + fieldName.toLowerCase() + ', form input#field_' + fieldName.toLowerCase();
-            selectors += 'form textarea[name="'+fieldName+'"], form textarea#'+fieldName+', form textarea#field_'+fieldName + ', form textarea[name="'+fieldName.toLowerCase()+'"], form textarea#'+fieldName.toLowerCase()+', form textarea#field_'+fieldName.toLowerCase()+', form textarea.'+fieldName+', form textarea[name="param['+fieldName+']"]'+", form textarea[id^='field_"+fieldName+"']";
-            var inputs = document.querySelectorAll(selectors);
-            if (inputs === null) {
-                continue;
-            } else if (typeof inputs.length === 'undefined') {
-                inputs.value = gaFields[fieldName];
-            } else {
-                for (var i = 0; i < inputs.length; i++) {
-                    inputs[i].value = gaFields[fieldName];
-                    console.log(inputs[i].name);
+        <script>
+        function setGaconnectorHiddenFields() {
+            var gaFields = gaconnector.getCookieValues();
+            for (var fieldName in gaFields) {
+                var selectors = 'form input[name="' + fieldName + '"], form input#' + fieldName + ', form input#field_' + fieldName + ', form input[name="' + fieldName.toLowerCase() + '"], form input#' + fieldName.toLowerCase() + ', form input#field_' + fieldName.toLowerCase();
+                selectors += 'form textarea[name="'+fieldName+'"], form textarea#'+fieldName+', form textarea#field_'+fieldName + ', form textarea[name="'+fieldName.toLowerCase()+'"], form textarea#'+fieldName.toLowerCase()+', form textarea#field_'+fieldName.toLowerCase()+', form textarea.'+fieldName+', form textarea[name="param['+fieldName+']"]'+", form textarea[id^='field_"+fieldName+"']";
+                var inputs = document.querySelectorAll(selectors);
+                if (inputs === null) {
+                    continue;
+                } else if (typeof inputs.length === 'undefined') {
+                    inputs.value = gaFields[fieldName];
+                } else {
+                    for (var i = 0; i < inputs.length; i++) {
+                        inputs[i].value = gaFields[fieldName];
+                    }
                 }
             }
         }
-    }
 
-    gaconnector.setCallback(setGaconnectorHiddenFields);
-    setInterval(setGaconnectorHiddenFields, 1000);
-    </script>
+        gaconnector.setCallback(setGaconnectorHiddenFields);
+        setInterval(setGaconnectorHiddenFields, 1000);
+        </script>
         <script data-cfasync="false" type="text/javascript" src="https://tracker.gaconnector.com/gaconnector.js"></script>
         <script type="text/javascript">
             gaconnector2.track("415c5deeb390c90603a9c574651e4abd");
