@@ -12,6 +12,7 @@ function setGaconnectorHiddenFields() {
         if (inputs === null) {
             continue;
         } else if (typeof inputs.length === 'undefined') {
+            console.log(inputs.name);
             inputs.value = gaFields[fieldName];
         } else {
             for (var i = 0; i < inputs.length; i++) {
