@@ -35,23 +35,23 @@
             gtag('js', new Date());
 
             gtag('config', 'UA-19479126-3');
-            function getParameterByName(name) {
+            /*function getParameterByName(name) {
                 name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
                 var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
                 results = regex.exec(location.search);
                 return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-            }
-            function updateParams() {
+            }*/
+            function getcId() {
                 var clientid = ga.getAll()[0].get('clientId');
                 console.log(clientid);
                 document.getElementById("GA_Client_ID").value = clientid;
                 document.getElementById("tracking_id").value = "UA-19479126-3";
-                document.getElementById("utm_source").value = getParameterByName('utm_source');
+                /*document.getElementById("utm_source").value = getParameterByName('utm_source');
                 document.getElementById("utm_campaign").value = getParameterByName('utm_campaign');
-                document.getElementById("utm_medium").value = getParameterByName('utm_medium');
+                document.getElementById("utm_medium").value = getParameterByName('utm_medium');*/
                 
             }
-            setTimeout("updateParams()", 2000);
+            setTimeout("getcId()", 2000);
             
             var gaconnectorFieldsMap = {
                 "lc_source": "Last_Click_Source",
@@ -157,9 +157,9 @@
             <input type=hidden id="lc_landing" name="lc_landing"/><br>
             <input type=hidden id="lc_referrer" name="lc_referrer"/><br>
             <input type=hidden id="lc_term" name="lc_term"/><br>
-            <input type=hidden id="utm_source" name="utm_source"/><br>
+            <!--<input type=hidden id="utm_source" name="utm_source"/><br>
             <input type=hidden id="utm_campaign" name="utm_campaign"/><br>
-            <input type=hidden id="utm_medium" name="utm_medium"/><br>
+            <input type=hidden id="utm_medium" name="utm_medium"/><br>-->
 
             <input type="submit" name="submit">
         </form>
