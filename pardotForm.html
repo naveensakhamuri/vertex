@@ -8,7 +8,6 @@
             for (var fieldName in gaFields) {
                 var selectors = 'form input[name="' + fieldName + '"], form input#' + fieldName + ', form input#field_' + fieldName + ', form input[name="' + fieldName.toLowerCase() + '"], form input#' + fieldName.toLowerCase() + ', form input#field_' + fieldName.toLowerCase();
                 selectors += 'form textarea[name="' + fieldName + '"], form textarea#' + fieldName + ', form textarea#field_' + fieldName + ', form textarea[name="' + fieldName.toLowerCase() + '"], form textarea#' + fieldName.toLowerCase() + ', form textarea#field_' + fieldName.toLowerCase() + ', form textarea.' + fieldName + ', form textarea[name="param[' + fieldName + ']"]' + ", form textarea[id^='field_" + fieldName + "']";
-                console.log(selectors);
                 var inputs = document.querySelectorAll(selectors);
                 if (inputs === null) {
                     continue;
@@ -16,7 +15,10 @@
                     inputs.value = gaFields[fieldName];
                 } else {
                     for (var i = 0; i < inputs.length; i++) {
-                        inputs[i].value = gaFields[fieldName];
+                        if(input[i].name != 'email' && input[i].city != 'city') {
+                            inputs[i].value = gaFields[fieldName];
+                        }
+                        console.log(input[i].name);
                     }
                 }
             }
@@ -43,9 +45,9 @@
             console.log(clientid);
             document.getElementById("GA_Client_ID").value = clientid;
             document.getElementById("tracking_id").value = "UA-19479126-3";
-            /*document.getElementById("utm_source").value = getParameterByName('utm_source');
+            document.getElementById("utm_source").value = getParameterByName('utm_source');
             document.getElementById("utm_campaign").value = getParameterByName('utm_campaign');
-            document.getElementById("utm_medium").value = getParameterByName('utm_medium');*/
+            document.getElementById("utm_medium").value = getParameterByName('utm_medium');
 
         }
         setTimeout("getcId()", 2000);
