@@ -8,6 +8,7 @@
             for (var fieldName in gaFields) {
                 var selectors = 'form input[name="' + fieldName + '"], form input#' + fieldName + ', form input#field_' + fieldName + ', form input[name="' + fieldName.toLowerCase() + '"], form input#' + fieldName.toLowerCase() + ', form input#field_' + fieldName.toLowerCase();
                 selectors += 'form textarea[name="' + fieldName + '"], form textarea#' + fieldName + ', form textarea#field_' + fieldName + ', form textarea[name="' + fieldName.toLowerCase() + '"], form textarea#' + fieldName.toLowerCase() + ', form textarea#field_' + fieldName.toLowerCase() + ', form textarea.' + fieldName + ', form textarea[name="param[' + fieldName + ']"]' + ", form textarea[id^='field_" + fieldName + "']";
+                console.log(selectors);
                 var inputs = document.querySelectorAll(selectors);
                 if (inputs === null) {
                     continue;
