@@ -3,6 +3,7 @@
 <head>
     <script data-cfasync="false" type="text/javascript" src="https://tracker.gaconnector.com/gaconnector.js"></script>
     <script>
+        //Code related to GA Connector
         function setGaconnectorHiddenFields() {
             var gaFields = gaconnector.getCookieValues();
             for (var fieldName in gaFields) {
@@ -15,48 +16,50 @@
                     inputs.value = gaFields[fieldName];
                 } else {
                     for (var i = 0; i < inputs.length; i++) {
-                        if(inputs[i].name != 'email' && inputs[i].name != "city") {
+                        if (inputs[i].name != 'email' && inputs[i].name != "city") {
                             inputs[i].value = gaFields[fieldName];
                         }
                     }
                 }
             }
         }
-
         gaconnector.setCallback(setGaconnectorHiddenFields);
         setInterval(setGaconnectorHiddenFields, 1000);
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19479126-3"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-411229-15"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+        
         function gtag() { dataLayer.push(arguments); }
+        
         gtag('js', new Date());
-
-        gtag('config', 'UA-19479126-3');
+        gtag('config', 'UA-411229-15');
+        
+        //Function for getting the url parameters
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
                 results = regex.exec(location.search);
             return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
         }
+        //Function for updating the non GA parameters on hidden fields
         function getcId() {
+            //get and update the client id
             var clientid = ga.getAll()[0].get('clientId');
-            console.log(clientid);
             document.getElementById("GA_Client_ID").value = clientid;
-            document.getElementById("tracking_id").value = "UA-19479126-3";
+            document.getElementById("tracking_id").value = "UA-411229-15";
+            //Update the source campaign and medium parameters
             var source = getParameterByName('utm_source');
             var campaign = getParameterByName('utm_campaign');
             var medium = getParameterByName('utm_medium');
-            console.log(source);
-            console.log(campaign);
-            console.log(medium);
             document.getElementById("utm_source").value = source;
             document.getElementById("utm_campaign").value = campaign;
             document.getElementById("utm_medium").value = medium;
-
         }
+        //Time out to time the field updating
         setTimeout("getcId()", 2000);
 
+        //Code related to GA Connector
         var gaconnectorFieldsMap = {
             "lc_source": "Last_Click_Source",
             "lc_medium": "Last_Click_Medium",
@@ -95,7 +98,6 @@
             }
         }
         window.addEventListener("message", receiveGaconnectorData, false);
-
         function setGaconnectorHiddenFields() {
             var gaFields = gaconnector.getCookieValues();
             setInterval(function () {
@@ -105,7 +107,6 @@
                 }
             }, 1000);
         }
-
         gaconnector.setCallback(setGaconnectorHiddenFields);
     </script>
 </head>
@@ -131,6 +132,7 @@
         <label for="state">State/Province</label>
         <input id="state" maxlength="20" name="state" size="20" type="text" /><br>
 
+        <!-------------------Hidden fields to be left As is------------------------------>
         <input type=hidden id="GA_Client_ID" name="GA_Client_ID" /><br>
         <input type=hidden id="tracking_id" name="tracking_id" /><br>
         <input type=hidden id="browser" name="browser" /><br>
@@ -149,7 +151,6 @@
         <input type=hidden id="fc_source" name="fc_source" /><br>
         <input type=hidden id="fc_term" name="fc_term" /><br>
 
-
         <input type=hidden id="lc_source" name="lc_source" /><br>
         <input type=hidden id="lc_medium" name="lc_medium" /><br>
         <input type=hidden id="lc_campaign" name="lc_campaign" /><br>
@@ -158,10 +159,10 @@
         <input type=hidden id="lc_landing" name="lc_landing" /><br>
         <input type=hidden id="lc_referrer" name="lc_referrer" /><br>
         <input type=hidden id="lc_term" name="lc_term" /><br>
-        <input type=hidden id="utm_source" name="utm_source"/><br>
-            <input type=hidden id="utm_campaign" name="utm_campaign"/><br>
-            <input type=hidden id="utm_medium" name="utm_medium"/><br>
-
+        <input type=hidden id="utm_source" name="utm_source" /><br>
+        <input type=hidden id="utm_campaign" name="utm_campaign" /><br>
+        <input type=hidden id="utm_medium" name="utm_medium" /><br>
+        <!-------------------------------------------------------------------->
         <input type="submit" name="submit">
     </form>
 </body>
